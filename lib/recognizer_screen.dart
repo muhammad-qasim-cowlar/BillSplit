@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:text_recognition_app/processed_screen.dart';
 
 // ignore: must_be_immutable
 class RecognizerScreen extends StatefulWidget {
@@ -59,8 +60,59 @@ class _RecognizerScreenState extends State<RecognizerScreen> {
           child: Container(
             child: Column(
               children: [
-                Image.file(widget.image),
-                Text(results),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Image.file(widget.image),
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(0.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        child: const Column(
+                          children: [
+                            Icon(
+                              Icons.rotate_left_outlined,
+                              size: 35,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Retake",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        onTap: () => {},
+                      ),
+                      InkWell(
+                        child: const Column(
+                          children: [
+                            Icon(
+                              Icons.scanner,
+                              size: 35,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Process Bill",
+                              style: TextStyle(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        onTap: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProcessedScreen(results)))
+                        },
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
