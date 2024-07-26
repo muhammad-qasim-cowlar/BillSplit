@@ -2,9 +2,13 @@ import 'dart:async';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:text_recognition_app/home_screen.dart';
 
 Future<void> main() async {
+  await Hive.initFlutter();
+  await Hive.openBox('ocrData');  // Open a Hive box named 'ocrData'
   // Ensure that plugin services are initialized so that `availableCameras()`
   // can be called before `runApp()`
   WidgetsFlutterBinding.ensureInitialized();

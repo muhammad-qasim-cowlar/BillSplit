@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:text_recognition_app/ocr_stream.dart';
 import 'dart:io';
 
 import 'package:text_recognition_app/recognizer_screen.dart';
@@ -84,7 +85,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           size: 35,
                           color: Colors.white,
                         ),
-                        onTap: () => {},
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                            builder: (context) => OCRCameraPreview(),
+                              ),
+                            )
+                        },
                       ),
                       InkWell(
                         child: const Icon(

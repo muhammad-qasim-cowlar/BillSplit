@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:text_recognition_app/bill_details.dart';
 
 class ProcessedScreen extends StatefulWidget {
   final String name;
@@ -72,11 +71,11 @@ class ProcessedScreenState extends State<ProcessedScreen> {
             ],
           ),
         ),
-        body: TabBarView(
+        body: const TabBarView(
           children: [
-            BillDetails(fname),
-            const Icon(Icons.directions_transit),
-            const Icon(Icons.directions_bike),
+            
+            Icon(Icons.directions_transit),
+            Icon(Icons.directions_bike),
           ],
         ),
       ),
